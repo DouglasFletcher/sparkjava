@@ -34,12 +34,12 @@ public class SimpleApp {
         JavaRDD<LabeledPoint> datasetRandomForest = PrepRawdata.createRandForestData(
                 dataset.getPreppedData()
         );
-        System.out.println(datasetRandomForest.first());
+        //System.out.println(datasetRandomForest.first());
 
         // *********************************
         // create Random Forest data / model
         // *********************************
-        //CreateRandForestModel.createRandForestModel(datasetRandomForest, spark, proloc);
+        CreateRandForestModel.createRandForestModel(datasetRandomForest, spark, proloc);
 
         // *****************
         // end spark session
