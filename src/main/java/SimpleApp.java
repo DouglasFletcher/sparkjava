@@ -47,7 +47,9 @@ public class SimpleApp {
         spark.stop();
 
         // end timer
-        String endTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        String endTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(//
+                Calendar.getInstance().getTime()
+        );
 
         long endDiff = System.currentTimeMillis();
         long totalTime = (endDiff - startDiff) / 1000;
