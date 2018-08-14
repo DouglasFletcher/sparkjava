@@ -1,3 +1,5 @@
+package utility;
+
 import org.apache.spark.sql.SparkSession;
 
 public class InstanceSparkSession {
