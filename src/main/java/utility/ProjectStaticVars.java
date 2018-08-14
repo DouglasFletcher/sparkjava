@@ -1,3 +1,5 @@
+package utility;
+
 public class ProjectStaticVars {
 
     public static final String projLoc = "C:/Users/dofletcher/Documents/deloitte/projects/creditscoring/";
