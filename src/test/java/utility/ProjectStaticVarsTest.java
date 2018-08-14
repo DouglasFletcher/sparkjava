@@ -1,16 +1,18 @@
+package utility;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class ReadDatasetTest {
+public class ProjectStaticVarsTest {
 
     @Test
-    public void readRawData_shouldSucceed(){
+    public void createFileLoc_shouldSucceed(){
         assertTrue(true);
     }
 
     @Test
-    public void getPreppedData_shouldSucceed(){
+    public void getProjloc_shouldSucceed(){
         assertTrue(true);
     }
 
