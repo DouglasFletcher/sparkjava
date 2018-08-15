@@ -26,7 +26,7 @@ public class SimpleApp {
 
         // ********************
         // create spark session
-        // ********************
+        /*
         SparkSession spark = InstanceSparkSession.getInstance();
         String proloc = ProjectStaticVars.getProjloc();
         String fileIn = ProjectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
@@ -48,7 +48,7 @@ public class SimpleApp {
         // *********************************
         // create Random Forest data / model
         // *********************************
-        CreateRandForestModel.createRandForestModel(datasetRandomForest, spark, proloc);
+        CreateRandForestModel.runModel(datasetRandomForest, spark, proloc);
 
         // *****************
         // end spark session
@@ -56,10 +56,11 @@ public class SimpleApp {
         spark.stop();
 
         // end timer
+        */
         String endTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(//
                 Calendar.getInstance().getTime()
         );
-
+        // ********************
         long endDiff = System.currentTimeMillis();
         long totalTime = (endDiff - startDiff) / 1000;
 
