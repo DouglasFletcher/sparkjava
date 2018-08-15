@@ -4,7 +4,7 @@ import base.config.SJConfig;
 
 public class ProjectStaticVars {
 
-    public static final String projLoc = SJConfig.projectLocConfig.getValue();
+    public static final String projLoc = SJConfig.projectLocDirConfig.getValue();
 
     public static String createFileLoc(String fileIn){
         // file location

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+import base.config.SJConfig;
 import scala.Tuple2;
 
 import org.apache.commons.io.FileUtils;
@@ -12,6 +13,7 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.mllib.tree.RandomForest;
 import org.apache.spark.mllib.tree.model.RandomForestModel;
 import org.apache.spark.sql.SparkSession;
+import utility.ProjectStaticVars;
 
 public class CreateRandForestModel {
 
@@ -45,7 +47,7 @@ public class CreateRandForestModel {
         System.out.println("Test Error Random Forest: " + testErr);
 
         // save model
-        String output = proloc.concat("/02_model/RandomForest");
+        String output = proloc.concat(SJConfig.projectLocOutdirConfig.getValue());
         File outputLoc = new File(output);
         try {
             FileUtils.deleteDirectory(outputLoc);

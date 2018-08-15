@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProjectStaticVarsTest {
 
-    private String projLoc = SJConfig.projectLocConfig.getValue();
+    private String projLoc = SJConfig.projectLocDirConfig.getValue();
 
     private String testFile = "test.csv";
 
