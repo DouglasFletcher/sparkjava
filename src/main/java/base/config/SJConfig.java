@@ -6,7 +6,10 @@ import java.util.Properties;
 
 public enum SJConfig {
 
-    projectLocConfig("proj.config.location"); // NOSONAR
+    projectLocDirConfig("proj.config.location.dir"), // NOSONAR
+    projectLocOutdirConfig("proj.config.location.outdir"), // NOSONAR
+    sparkSessionPropMaster("spark.session.prop.master"), // NOSONAR
+    sparkSessionPropAppname("spark.session.prop.appname"); // NOSONAR
 
     private final String propertyKey;
 

@@ -1,5 +1,6 @@
 package data;
 
+import base.config.SJConfig;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.sql.SparkSession;
