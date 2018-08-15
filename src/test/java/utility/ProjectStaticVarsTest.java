@@ -1,5 +1,6 @@
 package utility;
 
+import base.config.SJConfig;
 import org.junit.Test;
 
 import javax.inject.Inject;
@@ -8,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProjectStaticVarsTest {
 
-    private String projLoc = "C:/Users/dofletcher/Documents/deloitte/projects/sparkjava/";
+    private String projLoc = SJConfig.projectLocConfig.getValue();
 
     private String testFile = "test.csv";
 
