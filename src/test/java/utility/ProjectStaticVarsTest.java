@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProjectStaticVarsTest {
 
-    private String projLoc = "C:/Users/dofletcher/Documents/deloitte/projects/creditscoring/";
+    private String projLoc = "C:/Users/dofletcher/Documents/deloitte/projects/sparkjava/";
 
     private String testFile = "test.csv";
 
@@ -25,7 +25,6 @@ public class ProjectStaticVarsTest {
 
     @Test
     public void getProjloc_shouldSucceed(){
-
         assertEquals(projLoc, projectStaticVars.getProjloc());
     }
 
