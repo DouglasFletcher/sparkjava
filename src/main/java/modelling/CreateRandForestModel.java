@@ -15,7 +15,7 @@ import org.apache.spark.sql.SparkSession;
 
 public class CreateRandForestModel {
 
-    public static void createRandForestModel(JavaRDD<LabeledPoint> datasetIn, SparkSession spark, String proloc){
+    public static void runModel(JavaRDD<LabeledPoint> datasetIn, SparkSession spark, String proloc){
         // *************************
         // create training test data
         // *************************
