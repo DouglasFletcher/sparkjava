@@ -13,14 +13,11 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.mllib.tree.RandomForest;
 import org.apache.spark.mllib.tree.model.RandomForestModel;
 import org.apache.spark.sql.SparkSession;
-import utility.ProjectStaticVars;
 
 public class CreateRandForestModel {
 
     public static void runModel(JavaRDD<LabeledPoint> datasetIn, SparkSession spark, String proloc){
-        // *************************
-        // create training test data
-        // *************************
+
         // Split the data into training and test sets (30% held out for testing)
         JavaRDD<LabeledPoint>[] splits = datasetIn.randomSplit(new double[]{0.7, 0.3});
         JavaRDD<LabeledPoint> trainingData = splits[0];
@@ -39,11 +36,11 @@ public class CreateRandForestModel {
                 categoricalFeaturesInfo, numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins, seed);
 
         // Evaluate model on test instances and compute test error
-        JavaRDD<Tuple2<Double, Double>> predictionAndLabel = testData.map(s -> {
-           return new Tuple2<Double, Double>(model.predict(s.features()), s.label());
-        });
-
-        Double testErr = 1.0 * predictionAndLabel.filter(s -> s._1 == s._2).count() / testData.count();
+        Double testErr = testData.map(s -> {//
+            return new Tuple2<Double, Double>(model.predict(s.features()), s.label());//
+        }).filter(//
+            s -> s._1 == s._2//
+        ).count() / testData.count() * 1.0;//
         System.out.println("Test Error Random Forest: " + testErr);
 
         // save model
