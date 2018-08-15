@@ -10,7 +10,11 @@ import org.apache.spark.sql.SparkSession;
 import utility.InstanceSparkSession;
 import utility.ProjectStaticVars;
 
+import javax.inject.Inject;
+
 public class SimpleApp {
+
+    @Inject PrepRawdata prepRawdata;
 
     public static void main(String[] args) {
 
@@ -39,7 +43,7 @@ public class SimpleApp {
         JavaRDD<LabeledPoint> datasetRandomForest = PrepRawdata.createRandForestData(
                 dataset.getPreppedData()
         );
-        //System.out.println(datasetRandomForest.first());
+        System.out.println(datasetRandomForest.first());
 
         // *********************************
         // create Random Forest data / model
