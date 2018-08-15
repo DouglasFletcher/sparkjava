@@ -8,10 +8,8 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 public class PrepRawdata {
 
     public static JavaRDD<LabeledPoint> createRandForestData(JavaRDD<String[]> datasetIn) {
-        // *************************
-        // create training/test data
-        // *************************
 
+        // prep dataset
         return datasetIn.map(s -> {
             // 1 SeriousDlqin2yrs, 2 RevolvingUtilizationOfUnsecuredLines, 3 age, 4 NumberOfTime30-59DaysPastDueNotWorse
             // 5 DebtRatio, 6 MonthlyIncome, 7 NumberOfOpenCreditLinesAndLoans, 8 NumberOfTimes90DaysLate
