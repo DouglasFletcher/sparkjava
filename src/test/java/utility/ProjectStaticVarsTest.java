@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import javax.inject.Inject;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyString;
 
 public class ProjectStaticVarsTest {
 
