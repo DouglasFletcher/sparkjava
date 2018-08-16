@@ -4,13 +4,13 @@ import org.apache.spark.sql.SparkSession;
 import org.apache.spark.api.java.JavaRDD;
 
 
-public class ReadDataset {
+public class ReadAsRDD {
 
     private SparkSession spark;
     private String fileIn;
     private JavaRDD<String[]> readData;
 
-    public ReadDataset(SparkSession spark, String fileIn){
+    public ReadAsRDD(SparkSession spark, String fileIn){
         this.spark = spark;
         this.fileIn = fileIn;
     }

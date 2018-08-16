@@ -1,11 +1,11 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import data.PrepRawdata;
-import data.ReadDataset;
-import modelling.CreateRandForestModel;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.mllib.regression.LabeledPoint;
+import data.PrepRawdataDataset;
+import data.PrepRawdataRdd;
+import data.ReadAsDataset;
+import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import utility.InstanceSparkSession;
 import utility.ProjectStaticVars;
@@ -14,59 +14,28 @@ import javax.inject.Inject;
 
 public class SimpleApp {
 
-    @Inject PrepRawdata prepRawdata;
+    @Inject
+    PrepRawdataRdd prepRawdataRdd;
 
     public static void main(String[] args) {
 
         System.setProperty("HADOOP_HOME", "C:\\winutil\\");
 
-        // timer
-        String startTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        long startDiff = System.currentTimeMillis();
-
-        // ********************
         // create spark session
-        /*
         SparkSession spark = InstanceSparkSession.getInstance();
         String proloc = ProjectStaticVars.getProjloc();
         String fileIn = ProjectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
 
-        // *************
         // read raw data
-        // *************
-        ReadDataset dataset = new ReadDataset(spark, fileIn);
-        dataset.readRawData();
+        Dataset<Row> dataset = new ReadAsDataset(spark, fileIn).getPreppedData();
+        System.out.println(dataset);
 
-        // *************************
-        // prep data transformations
-        // *************************
-        JavaRDD<LabeledPoint> datasetRandomForest = PrepRawdata.createRandForestData(
-                dataset.getPreppedData()
-        );
-        System.out.println(datasetRandomForest.first());
+        // transform data
+        Dataset<Row> dataTrans = new PrepRawdataDataset(dataset).getDatasetOut();
+        System.out.println(dataTrans);
 
-        // *********************************
-        // create Random Forest data / model
-        // *********************************
-        CreateRandForestModel.runModel(datasetRandomForest, spark, proloc);
-
-        // *****************
-        // end spark session
-        // *****************
         spark.stop();
 
-        // end timer
-        */
-        String endTime = new SimpleDateFormat("yyyyMMdd_HHmmss").format(//
-                Calendar.getInstance().getTime()
-        );
-        // ********************
-        long endDiff = System.currentTimeMillis();
-        long totalTime = (endDiff - startDiff) / 1000;
-
-        System.out.println("Start Time : " + startTime);
-        System.out.println("End Time : " + endTime);
-        System.out.println("Total time taken to run : " + totalTime + " seconds");
 
     }
 };
