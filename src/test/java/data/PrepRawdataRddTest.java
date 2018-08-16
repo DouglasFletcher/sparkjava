@@ -1,8 +1,5 @@
 package data;
 
-import base.config.SJConfig;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.sql.SparkSession;
 import org.junit.After;
 import org.junit.Before;
@@ -16,14 +13,14 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class PrepRawdataTest {
+public class PrepRawdataRddTest {
 
-    private ReadDataset dataset;
+    private ReadAsRDD dataset;
 
     private SparkSession spark;
 
     @Inject
-    PrepRawdata prepRawdata;
+    PrepRawdataRdd prepRawdataRdd;
 
     @Inject
     ProjectStaticVars projectStaticVars;
@@ -36,7 +33,7 @@ public class PrepRawdataTest {
         // test data
         spark = instanceSparkSession.getInstance();
         String fileIn = projectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
-        dataset = new ReadDataset(spark, fileIn);
+        dataset = new ReadAsRDD(spark, fileIn);
     }
 
     @After
@@ -50,7 +47,7 @@ public class PrepRawdataTest {
         int rowCount = 150000;
         dataset.readRawData();
         // tests method: rows check
-        assertFalse(prepRawdata.createRandForestData(dataset.getPreppedData()).isEmpty());
+        assertFalse(prepRawdataRdd.createRandForestData(dataset.getPreppedData()).isEmpty());
         assertEquals(rowCount, dataset.getPreppedData().count());
     }
 

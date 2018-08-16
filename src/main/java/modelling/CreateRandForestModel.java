@@ -3,6 +3,8 @@ package modelling;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Stream;
 
 import base.config.SJConfig;
 import scala.Tuple2;
@@ -35,11 +37,13 @@ public class CreateRandForestModel {
         final RandomForestModel model = RandomForest.trainClassifier(trainingData, numClasses,
                 categoricalFeaturesInfo, numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins, seed);
 
+
+
         // Evaluate model on test instances and compute test error
         Double testErr = testData.map(s -> {//
             return new Tuple2<Double, Double>(model.predict(s.features()), s.label());//
         }).filter(//
-            s -> s._1 == s._2//
+            s -> s._1.equals(s._2)//
         ).count() / testData.count() * 1.0;//
         System.out.println("Test Error Random Forest: " + testErr);
 
