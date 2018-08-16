@@ -1,15 +1,13 @@
 package modelling;
 
-import data.PrepRawdata;
-import data.ReadDataset;
+import data.PrepRawdataRdd;
+import data.ReadAsRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.sql.SparkSession;
-import org.apache.zookeeper.Op;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import utility.InstanceSparkSession;
 import utility.ProjectStaticVars;
 
@@ -38,17 +36,17 @@ public class CreateRandForestModelTest {
     CreateRandForestModel createRandForestModel;
 
     @Inject
-    PrepRawdata prepRawdata;
+    PrepRawdataRdd prepRawdataRdd;
 
     @Before
     public void setUp() throws Exception {
         // test data
         spark = instanceSparkSession.getInstance();
         String fileIn = projectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
-        ReadDataset dataset = new ReadDataset(spark, fileIn);
+        ReadAsRDD dataset = new ReadAsRDD(spark, fileIn);
         dataset.readRawData();
         proloc = ProjectStaticVars.getProjloc();
-        datasetRandomForest = prepRawdata.createRandForestData(
+        datasetRandomForest = prepRawdataRdd.createRandForestData(
                 dataset.getPreppedData()
         );
 
