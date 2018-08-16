@@ -5,7 +5,7 @@ import org.apache.spark.mllib.linalg.Vector;
 import org.apache.spark.mllib.linalg.Vectors;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
-public class PrepRawdata {
+public class PrepRawdataRdd {
 
     public static JavaRDD<LabeledPoint> createRandForestData(JavaRDD<String[]> datasetIn) {
 

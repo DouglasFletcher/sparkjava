@@ -12,9 +12,9 @@ import javax.inject.Inject;
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ReadDatasetTest {
+public class ReadAsRDDTest {
 
-    private ReadDataset dataset;
+    private ReadAsRDD dataset;
 
     private SparkSession spark;
 
@@ -29,7 +29,7 @@ public class ReadDatasetTest {
         // test data
         spark = instanceSparkSession.getInstance();
         String fileIn = projectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
-        dataset = new ReadDataset(spark, fileIn);
+        dataset = new ReadAsRDD(spark, fileIn);
     }
 
     @After
