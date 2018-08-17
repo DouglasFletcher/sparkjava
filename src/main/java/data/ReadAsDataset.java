@@ -11,12 +11,22 @@ public class ReadAsDataset {
     private String fileIn;
     private Dataset<Row> rawData;
 
+    /**
+     * <h3>Constuctor</h3>
+     * <p>Read dataset constructor</p>
+     * @param spark SparkSession: spark session
+     * @param fileIn String: file location
+     */
     public ReadAsDataset(SparkSession spark, String fileIn){
         this.spark = spark;
         this.fileIn = fileIn;
         this.readRawData();
     }
 
+    /**
+     * <h3>read data</h3>
+     * <p>read data as DataSet<row></p>
+     */
     private void readRawData() {
 
         // define schema
@@ -40,8 +50,13 @@ public class ReadAsDataset {
                 .csv(fileIn);
     }
 
-    public Dataset<Row> getPreppedData() {
-        return rawData;
+    /**
+     * <h3>get data</h3>
+     * <p>Read dataset constructor</p>
+     * @return rawData Dataset<Row>: output data
+     */
+    public Dataset<Row> getRawData() {//
+        return rawData; //
     }
 
 }
