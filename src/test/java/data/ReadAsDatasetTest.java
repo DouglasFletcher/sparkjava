@@ -41,7 +41,7 @@ public class ReadAsDatasetTest {
         // expected
         int rowCount = 150000;
         // test method
-        assertEquals(rowCount, dataset.getPreppedData().count());
+        assertEquals(rowCount, dataset.getRawData().count());
     }
 
 }
