@@ -3,7 +3,10 @@ package data;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.api.java.JavaRDD;
 
-
+/**
+ * <h3>Read RDD</h3>
+ * <p>Read raw data as RDD</p>
+ */
 public class ReadAsRDD {
 
     private SparkSession spark;
