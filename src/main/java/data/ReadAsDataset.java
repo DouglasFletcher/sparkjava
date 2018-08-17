@@ -15,7 +15,6 @@ public class ReadAsDataset {
         this.spark = spark;
         this.fileIn = fileIn;
         this.readRawData();
-        this.getPreppedData();
     }
 
     private void readRawData() {
