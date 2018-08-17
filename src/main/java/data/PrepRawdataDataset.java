@@ -4,6 +4,10 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.functions;
 
+/**
+ * <h3>Prep Rawdata</h3>
+ * <p>Prep DataSet rawdata data transformations for model input</p>
+ */
 public class PrepRawdataDataset {
 
     private Dataset<Row> datasetOut;

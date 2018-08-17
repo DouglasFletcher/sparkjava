@@ -5,6 +5,10 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.StructType;
 
+/**
+ * <h3>Read Dataset</h3>
+ * <p>Read raw data as Dataset</p>
+ */
 public class ReadAsDataset {
 
     private SparkSession spark;
