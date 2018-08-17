@@ -23,19 +23,15 @@ public class SimpleApp {
 
         // create spark session
         SparkSession spark = InstanceSparkSession.getInstance();
-        String proloc = ProjectStaticVars.getProjloc();
         String fileIn = ProjectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
 
         // read raw data
         Dataset<Row> dataset = new ReadAsDataset(spark, fileIn).getPreppedData();
-        System.out.println(dataset);
 
         // transform data
         Dataset<Row> dataTrans = new PrepRawdataDataset(dataset).getDatasetOut();
-        System.out.println(dataTrans);
 
         spark.stop();
-
 
     }
 };
