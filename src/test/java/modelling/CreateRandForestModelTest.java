@@ -53,7 +53,6 @@ public class CreateRandForestModelTest {
     }
 
     @Test
-    @Ignore
     public void createRandForestModel_shouldSucceed(){
         // method
         try {
