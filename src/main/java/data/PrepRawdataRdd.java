@@ -7,6 +7,12 @@ import org.apache.spark.mllib.regression.LabeledPoint;
 
 public class PrepRawdataRdd {
 
+    /**
+     * <h3>create modelling data as RDD</h3>
+     * <p>adds transformations to modelling data</p>
+     * @param datasetIn Dataset<Row>: input data
+     * @return datasetOut JavaRDD<LabeledPoint>: output data
+     */
     public static JavaRDD<LabeledPoint> createRandForestData(JavaRDD<String[]> datasetIn) {
 
         // prep dataset
