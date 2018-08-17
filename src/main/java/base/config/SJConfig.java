@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * <h3>Scala Java Config file</h3>
+ * <p>application parameters are stored in config.properties file.</p>
+ */
 public enum SJConfig {
 
     projectLocDirConfig("proj.config.location.dir"), // NOSONAR

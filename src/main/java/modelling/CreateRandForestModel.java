@@ -16,8 +16,19 @@ import org.apache.spark.mllib.tree.RandomForest;
 import org.apache.spark.mllib.tree.model.RandomForestModel;
 import org.apache.spark.sql.SparkSession;
 
+/**
+ * <h3>Create Model</h3>
+ * <p>Model to create random forest model</p>
+ */
 public class CreateRandForestModel {
 
+    /**
+     * <h3>run model</h3>
+     * <p>run random forest model</p>
+     * @param datasetIn JavaRDD<LabeledPoint>: modelling data
+     * @param spark SparkSession: spark session
+     * @param proloc String: project location
+     */
     public static void runModel(JavaRDD<LabeledPoint> datasetIn, SparkSession spark, String proloc){
 
         // Split the data into training and test sets (30% held out for testing)
