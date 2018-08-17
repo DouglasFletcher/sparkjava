@@ -5,6 +5,10 @@ import org.apache.spark.mllib.linalg.Vector;
 import org.apache.spark.mllib.linalg.Vectors;
 import org.apache.spark.mllib.regression.LabeledPoint;
 
+/**
+ * <h3>Prep Rawdata</h3>
+ * <p>Prep RDD rawdata data transformations for model input</p>
+ */
 public class PrepRawdataRdd {
 
     /**
