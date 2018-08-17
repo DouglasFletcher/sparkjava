@@ -47,7 +47,7 @@ public class CreateRandForestModelTest {
         dataset.readRawData();
         proloc = ProjectStaticVars.getProjloc();
         datasetRandomForest = prepRawdataRdd.createRandForestData(
-                dataset.getPreppedData()
+                dataset.getRawData()
         );
 
     }

@@ -43,7 +43,7 @@ public class ReadAsRDDTest {
         int rowCount = 150000;
         // test method
         dataset.readRawData();
-        assertEquals(rowCount, dataset.getPreppedData().count());
+        assertEquals(rowCount, dataset.getRawData().count());
     }
 
 }
