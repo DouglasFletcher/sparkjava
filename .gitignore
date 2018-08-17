@@ -1,5 +1,5 @@
 .idea
 /target
-/01_data
+--/01_data
 /02_model
 /spark-warehouse
