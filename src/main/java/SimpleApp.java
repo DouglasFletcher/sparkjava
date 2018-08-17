@@ -1,6 +1,3 @@
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import data.PrepRawdataDataset;
 import data.PrepRawdataRdd;
 import data.ReadAsDataset;
@@ -26,7 +23,7 @@ public class SimpleApp {
         String fileIn = ProjectStaticVars.createFileLoc("/01_data/cstraining_kaggle.csv");
 
         // read raw data
-        Dataset<Row> dataset = new ReadAsDataset(spark, fileIn).getPreppedData();
+        Dataset<Row> dataset = new ReadAsDataset(spark, fileIn).getRawData();
 
         // transform data
         Dataset<Row> dataTrans = new PrepRawdataDataset(dataset).getDatasetOut();

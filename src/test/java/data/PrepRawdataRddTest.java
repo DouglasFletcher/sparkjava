@@ -47,8 +47,8 @@ public class PrepRawdataRddTest {
         int rowCount = 150000;
         dataset.readRawData();
         // tests method: rows check
-        assertFalse(prepRawdataRdd.createRandForestData(dataset.getPreppedData()).isEmpty());
-        assertEquals(rowCount, dataset.getPreppedData().count());
+        assertFalse(prepRawdataRdd.createRandForestData(dataset.getRawData()).isEmpty());
+        assertEquals(rowCount, dataset.getRawData().count());
     }
 
 
