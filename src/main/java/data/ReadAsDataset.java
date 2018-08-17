@@ -22,22 +22,21 @@ public class ReadAsDataset {
 
         // define schema
         StructType schema = new StructType()
-                .add("SeriousDlqin2yrs", "string")
-                .add("SeriousDlqin2yrs", "string")
-                .add("RevolvingUtilizationOfUnsecuredLines", "string")
-                .add("age", "string")
-                .add("NumberOfTime3059DaysPastDueNotWorse", "string")
-                .add("DebtRatio", "string")
-                .add("MonthlyIncome", "string")
-                .add("NumberOfOpenCreditLinesAndLoans", "string")
-                .add("NumberOfTimes90DaysLate", "string")
-                .add("NumberRealEstateLoansOrLines", "string")
-                .add("NumberOfTime6089DaysPastDueNotWorse", "string")
-                .add("NumberOfDependents", "string");
+                .add("SeriousDlqin2yrs", "string") // 1
+                .add("RevolvingUtilizationOfUnsecuredLines", "string") // 2
+                .add("age", "string") // 3
+                .add("NumberOfTime3059DaysPastDueNotWorse", "string") // 4
+                .add("DebtRatio", "string") // 5
+                .add("MonthlyIncome", "string") // 6
+                .add("NumberOfOpenCreditLinesAndLoans", "string") // 7
+                .add("NumberOfTimes90DaysLate", "string") // 8
+                .add("NumberRealEstateLoansOrLines", "string") // 9
+                .add("NumberOfTime6089DaysPastDueNotWorse", "string") // 10
+                .add("NumberOfDependents", "string"); // 11
 
         // read data
         rawData = spark.read()
-                .option("mode", "DROPMALFORMED")
+                .option("header","true")
                 .schema(schema)
                 .csv(fileIn);
     }
