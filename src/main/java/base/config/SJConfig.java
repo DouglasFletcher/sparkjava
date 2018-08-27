@@ -10,7 +10,7 @@ import java.util.Properties;
  */
 public enum SJConfig {
 
-    projectLocDirConfig("proj.config.location.dir"), // NOSONAR
+    projectLocDirConfig("project.basedir"), // NOSONAR
     projectLocOutdirConfig("proj.config.location.outdir"), // NOSONAR
     sparkSessionPropMaster("spark.session.prop.master"), // NOSONAR
     sparkSessionPropAppname("spark.session.prop.appname"); // NOSONAR
@@ -23,7 +23,7 @@ public enum SJConfig {
         Properties prop = new Properties();
         try (//
             InputStream input = Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("config.properties");) {//
+                .getResourceAsStream("config.properties")) {//
                 prop.load(input);//
         } catch (IOException | IllegalArgumentException | NullPointerException exception) {
             throw new RuntimeException("Could not load property file.", exception);// NOSONAR
@@ -33,6 +33,10 @@ public enum SJConfig {
             String value = prop.getProperty(message.propertyKey);//
             if (value == null) {//
                 throw new RuntimeException("Property <" + message.propertyKey + "> not found in properties file!"); // NOSONAR
+            }
+            // TODO basedir not configuring
+            else if (value.equals("${basedir}")) { //
+                value = System.getProperty("basedir");
             }
             message.value = value;
         }
