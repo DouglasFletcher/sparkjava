@@ -8,6 +8,7 @@ import org.apache.spark.sql.functions;
  * <h3>Prep Rawdata</h3>
  * <p>Prep DataSet rawdata data transformations for model input</p>
  */
+@Deprecated
 public class PrepRawdataDataset {
 
     private Dataset<Row> datasetOut;
@@ -15,7 +16,7 @@ public class PrepRawdataDataset {
     /**
      * <h3>constructor</h3>
      * <p>run transformations</p>
-     * @param datasetIn
+     * @param datasetIn Dataset<Row>: dataset in
      */
     public PrepRawdataDataset(Dataset<Row> datasetIn){
         this.createRandForestData(datasetIn);
@@ -26,7 +27,7 @@ public class PrepRawdataDataset {
      * <p>adds transformations to modelling data</p>
      * @param datasetIn Dataset<Row>: input data
      */
-    public void createRandForestData(Dataset<Row> datasetIn) {
+    private void createRandForestData(Dataset<Row> datasetIn) {
         datasetOut = datasetIn
             .withColumn("new_col1", functions.lit(1))
             .withColumn("new_col2", functions.lit(2));
