@@ -9,6 +9,7 @@ import org.apache.spark.sql.types.StructType;
  * <h3>Read Dataset</h3>
  * <p>Read raw data as Dataset</p>
  */
+@Deprecated
 public class ReadAsDataset {
 
     private SparkSession spark;
