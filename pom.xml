@@ -18,6 +18,7 @@
         <surefire.plugin.version>2.18.1</surefire.plugin.version>
         <org.jacoco.version>0.7.8</org.jacoco.version>
         <org.jacoco.destfile>${basedir}/target/jacoco.exec</org.jacoco.destfile>
+
     </properties>
 
     <dependencies>
@@ -57,9 +58,15 @@
         </dependency>
     </dependencies>
 
-    <build>
+      <build>
 
-        <plugins>
+          <resources>
+              <resource>
+                  <directory>src/main/resources</directory>
+              </resource>
+          </resources>
+
+          <plugins>
             <!-- Generate Jacoco code coverage report -->
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -99,7 +106,7 @@
 
         </plugins>
 
-    </build>
+      </build>
 
 
 </project>
